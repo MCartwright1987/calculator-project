@@ -1,8 +1,7 @@
-// Function to append numbers or operators to the display
 let justCalculated = false;
+let display = document.getElementById('display'); // Declare once at the top
 
 function appendNumber(number) {
-    let display = document.getElementById('display');
   // If the result was just calculated and the user presses a number, clear the display
   if (justCalculated && !isNaN(number)) {
     display.value = '';  // Clear the display
@@ -13,14 +12,12 @@ function appendNumber(number) {
   }
   
   function clearDisplay() {
-    let display = document.getElementById('display');
     display.value = '';
     justCalculated = false; 
   }
   
   // Calculate the result using Math.js
   function calculate() {
-    let display = document.getElementById('display');
     try {
       // Evaluate the current value in the input field
       let result = math.evaluate(display.value);
