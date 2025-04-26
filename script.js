@@ -1,30 +1,37 @@
 let justCalculated = false;
-let display = document.getElementById('display'); // Declare once at the top
+let display = document.getElementById('display');
 
 function appendNumber(number) {
-  // If the result was just calculated and the user presses a number, clear the display
+  // clear display if number pressed after calcultaion
   if (justCalculated && !isNaN(number)) {
     display.value = '';  // Clear the display
   }
+  //add the number to the display
+  display.value += number; 
 
   justCalculated = false;  
-  display.value += number; 
   }
   
   function clearDisplay() {
     display.value = '';
+
     justCalculated = false; 
   }
   
-  // Calculate the result using Math.js
+  
   function calculate() {
     try {
-      // Evaluate the current value in the input field
+      // Calculate the result using Math.js Library
       let result = math.evaluate(display.value);
-      display.value = result.toString(); // Update the display with the result
+
+      // Update the display with the result
+      display.value = result.toString(); 
+
       justCalculated = true;
     } catch (error) {
-      display.value = 'Error'; // Show error message if expression is invalid
+      // Show error message if expression is invalid
+      display.value = 'Error'; 
+
       justCalculated = false;
     }
   }
